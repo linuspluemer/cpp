@@ -5,7 +5,14 @@ using namespace std;
 
 
 
-//Berechnet die coe Matrix zu einem Spielplan, Eintrag i,j sind die Nummer der coe die Team i an Team j gibt
+/*
+*   Berechnet die Cross-Over Effect Matrix 
+*   
+*   @param vector<vector<int>> Spielplan
+*   @param int Anzahl der Teams
+*
+*   @return Cross-Over Effect Matrix
+*/
 vector<vector<int>> coeMatrix(vector<vector<int>> schedule, int n) {
     
     vector<vector<int>> coeM(n, vector<int>(n, 0));
@@ -23,36 +30,34 @@ vector<vector<int>> coeMatrix(vector<vector<int>> schedule, int n) {
             }
         }
     }
-    cout << "Größe von coeM vor Rückgabe von coeM " << coeM.size() << " * " << coeM[0].size() << '\n';
     return coeM;
 }
 
 
 
 
-//Berechnet den weighted carry-over effect value eines gegebenen Spielplan
+/*
+*   Berechnet den (gewichteten) Cross-Over Effect Wert eines Spieplans
+*
+*   @param vector<vector<int>> Spielplan
+*   @param int Anzahl der Teams
+*   @param vector<vector<int>> Gewichtungsmatrix (optional)
+*
+*   @return (Gewichteter) Cross-Over Effect Wert 
+*/
 int coeValue(vector<vector<int>> schedule, int n, vector<vector<int>> weightMatrix = {}) {
     
     vector<vector<int>> coeM = coeMatrix(schedule, n);
 
-    cout << "Größe von coeM nach zuweisung in coeValue " << coeM.size() << " * " << coeM[0].size() << '\n';
-    cout << "Größe von n in coeValue " << n << '\n';
-
-    int coeTest = 0;
     int coeV = 0;
     int weight = 1;
+
     for (int i = 0; i<n; i++) {
         for (int j = 0; j<n; j++) {
             weight = (weightMatrix.empty()) ? 1 : weightMatrix[i][j];
             coeV += coeM[i][j] * coeM[i][j] * weight;
-            coeTest += coeM[i][j];
         }
-        cout << "Zeile " << i << " fertig. coeV ist: " << coeV << '\n';
     }
-    cout << coeTest << '\n';
-    cout << coeV << '\n';
-
     return coeV;
-
 } 
 

@@ -18,7 +18,7 @@ void printSchedule(vector<vector<int>> schedule) {
 int main() {
 
 int n = 8;
-int a = 1;
+int a = 0;
 
 
 vector<vector<int>> schedule = startingFixture(n, a);

@@ -3,7 +3,9 @@
     using namespace std;
 
 
-    //berechnet a(k,l) in der Polygon Method
+    /*
+    *   Berechnet a(k,l) in der Polygon Methode
+    */
     int polyA(int k, int l, int n) {
         if (k + l < n) {
             return(k + l);
@@ -13,7 +15,9 @@
     }
 
 
-    //berechnet b(k,l) in der Polygon Method
+    /*
+    *   Berechnet b(k,l) in der Polygon Methode
+    */
     int polyB(int k, int l, int n) {
         if (k - l > 0) {
             return(k - l);
@@ -23,17 +27,20 @@
     }
 
 
-    //Erstellen einer Starting Fixture nach der Polygon Method
+    /*
+    *   Erstellt eine Starting Fixture nach der Polygon Methode
+    *
+    *   @param int Anzahl der Teams
+    * 
+    *   @return Spielplan
+    */
     vector<vector<int>> polygonMethod(int n) {
         
-        //Matrix der richtigen Größe wird initialisiert
         vector<vector<int>> schedule(n-1,vector<int>(n));
 
-        //Variablen um Werte a(k,l) und b(k,l) zu speichern
         int a = 0;
         int b = 0;
 
-        //Matrix wird ausgefüllt
         for (int k = 0; k < n-1; k++) {
             
             schedule[k][k] = n - 1;
@@ -50,13 +57,21 @@
     }
 
 
-    // Berechnet c(k,l) in der Methode von de Werra
+    /*
+    *   Berechnet c(k,l) in der de Werra Methode
+    */
     int deWerraC(int k, int l, int n) {
         return((k + l - 2) % (n / 2) + (n / 2) + 1);
     }
 
 
-    // Erstellen einer Starting Fixture nach der Methode von de Werra
+    /*
+    *   Erstellt eine Starting Fixture nach der de Werra Methode
+    *
+    *   @param int Anzahl der Teams
+    * 
+    *   @return Spielplan
+    */
     vector<vector<int>> deWerraMethod(int n) {
 
         //Matrix der richtigen Größe wird initialisiert
@@ -86,10 +101,15 @@
         return(schedule);
     }
 
-    //Erstellt eine Starting Fixture. n ist Anzahl der Teams, auswahl = 0 für Polygon Methode, auswahl = 1 für deWerra Methode
+    /*
+    *   Erstellt eine Starting Fixture
+    *
+    *   @param int Anzahl der Teams
+    *   @param int Auswahl der Methode: 0 = Polygon, 1 = deWerra
+    * 
+    *   @return Spielplan
+    */
     vector<vector<int>> startingFixture(int n, int a) {
-
-        //return(polygonMethod(n));
 
         if (a == 0) {
             return(polygonMethod(n));
