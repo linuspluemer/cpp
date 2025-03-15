@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "startingFixture.h"
+#include "scheduleEvaluation.h"
 using namespace std;
 
 
@@ -17,13 +18,19 @@ void printSchedule(vector<vector<int>> schedule) {
 int main() {
 
 int n = 8;
+int a = 1;
 
-vector<vector<int>> schedule = startingFixture(n, 0);
 
+vector<vector<int>> schedule = startingFixture(n, a);
+vector<vector<int>> coeM = coeMatrix(schedule, n);
 
 
 printSchedule(schedule);
+cout << '\n';
+printSchedule(coeM);
 
+
+int coeV = coeValue(schedule, n);
 
 
 return 0;
