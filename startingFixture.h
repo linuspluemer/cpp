@@ -86,11 +86,12 @@ vector<vector<int>> deWerraMethod(int n) {
     return(schedule);
 }
 
+//Erstellt eine Starting Fixture. n ist Anzahl der Teams, auswahl = 0 für Polygon Methode, auswahl = 1 für deWerra Methode
+vector<vector<int>> startingFixture(int n, int auswahl) {
 
-vector<vector<int>> startingFixture(int n) {
-
-    return(deWerraMethod(n));
-
-    //return(polygonMethod(n));
-
+    if (int auswahl == 0) {
+        return(polygonMethod(n));
+    } else {
+        return(deWerraMethod(n));
+    }
 }

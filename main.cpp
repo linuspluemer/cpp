@@ -18,7 +18,7 @@ int main() {
 
 int n = 8;
 
-vector<vector<int>> schedule = startingFixture(n);
+vector<vector<int>> schedule = startingFixture(n, 0);
 
 
 
