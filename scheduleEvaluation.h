@@ -1,10 +1,6 @@
  #include <iostream>
  #include <vector> 
 
-
-
-
-
 /*
 *   Berechnet die Cross-Over Effect Matrix 
 *   
@@ -13,7 +9,7 @@
 *
 *   @return Cross-Over Effect Matrix
 */
-vector<vector<int>> coeMatrix(vector<vector<int>> schedule, int n) {
+std::vector<std::vector<int>> coeMatrix(std::vector<std::vector<int>> schedule, int n) {
     using namespace std;
     vector<vector<int>> coeM(n, vector<int>(n, 0));
     
@@ -45,7 +41,7 @@ vector<vector<int>> coeMatrix(vector<vector<int>> schedule, int n) {
 *
 *   @return (Gewichteter) Cross-Over Effect Wert 
 */
-int coeValue(vector<vector<int>> schedule, int n, vector<vector<int>> weightMatrix = {}) {
+int coeValue(std::vector<std::vector<int>> schedule, int n, std::vector<std::vector<int>> weightMatrix = {}) {
     
     using namespace std;
 

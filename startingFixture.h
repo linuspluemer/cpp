@@ -1,7 +1,7 @@
     #include <iostream>
     #include <vector>
 
-
+    
     /*
     *   Berechnet a(k,l) in der Polygon Methode
     */
