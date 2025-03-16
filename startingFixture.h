@@ -1,6 +1,5 @@
     #include <iostream>
     #include <vector>
-    using namespace std;
 
 
     /*
@@ -34,8 +33,10 @@
     * 
     *   @return Spielplan
     */
-    vector<vector<int>> polygonMethod(int n) {
+    std::vector<std::vector<int>> polygonMethod(int n) {
         
+        using namespace std;
+
         vector<vector<int>> schedule(n-1,vector<int>(n));
 
         int a = 0;
@@ -72,15 +73,14 @@
     * 
     *   @return Spielplan
     */
-    vector<vector<int>> deWerraMethod(int n) {
+    std::vector<std::vector<int>> deWerraMethod(int n) {
 
-        //Matrix der richtigen Größe wird initialisiert
+        using namespace std;
+
         vector<vector<int>> schedule(n-1,vector<int>(n));
 
-        // Zum speichern von c(k,l)
         int c = 0;
 
-        // Die ersten n/2 Runden werden ausgefüllt
         for (int k = 0; k < (n / 2); k++) {
             for (int l = 0; l < (n / 2); l++) {
                 c = deWerraC(k + 1, l + 1, n) - 1;
@@ -91,7 +91,6 @@
 
         vector<vector<int>> factorization = polygonMethod(n/2);
 
-        //Die hinteren n/2 Runden werden ausgefüllt
         for (int i = 0; i < (n / 2) - 1; i++) {
             for (int j = 0; j < (n / 2); j++) {
                 schedule[i + (n / 2)][j] = factorization[i][j];
@@ -109,7 +108,9 @@
     * 
     *   @return Spielplan
     */
-    vector<vector<int>> startingFixture(int n, int a) {
+    std::vector<std::vector<int>> startingFixture(int n, int a) {
+
+        using namespace std;
 
         if (a == 0) {
             return(polygonMethod(n));

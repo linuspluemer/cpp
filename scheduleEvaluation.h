@@ -1,7 +1,7 @@
  #include <iostream>
  #include <vector> 
 
-using namespace std;
+
 
 
 
@@ -14,7 +14,7 @@ using namespace std;
 *   @return Cross-Over Effect Matrix
 */
 vector<vector<int>> coeMatrix(vector<vector<int>> schedule, int n) {
-    
+    using namespace std;
     vector<vector<int>> coeM(n, vector<int>(n, 0));
     
     //Iteration über Teams i,j
@@ -47,6 +47,8 @@ vector<vector<int>> coeMatrix(vector<vector<int>> schedule, int n) {
 */
 int coeValue(vector<vector<int>> schedule, int n, vector<vector<int>> weightMatrix = {}) {
     
+    using namespace std;
+
     vector<vector<int>> coeM = coeMatrix(schedule, n);
 
     int coeV = 0;
